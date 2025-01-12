@@ -3,7 +3,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import base64
 import requests
-from spotify.models import Artist
+# from spotify.models import Artist
 
 
 path = Path(__file__).parent.parent.parent / "default.env"
@@ -31,6 +31,6 @@ class SpotifyClient:
         token = self.get_token()
         return {'Authorization': f'Bearer {token}'}
 
-    def get_artist(self, artist_id: str) -> Artist:  # Todo craete artist model
+    def get_artist(self, artist_id: str) :  # Todo craete artist model
         artist = requests.get(self.artist_url + artist_id, headers=self.headers)
         return artist

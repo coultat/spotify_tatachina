@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+
     # Third party apps
-    'spotify'
+    'spotify.apps.SpotifyConfig',
 ]
 
 MIDDLEWARE = [
