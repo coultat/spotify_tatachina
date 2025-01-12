@@ -22,3 +22,10 @@ def get_artist(request: Request):
     artist = SpotifyClient().get_artist(artist_id)
     return Response(data=artist,
                     status=status.HTTP_200_OK)
+
+
+@api_view(http_method_names=["GET"])
+def get_parameters(request: Request):
+    data = request.data.query_params
+    return Response(data=data,
+                    status=status.HTTP_200_OK)
