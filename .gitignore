@@ -2,3 +2,5 @@
 .gitignore
 default.env
 **/__pycache__/
+spotify/migrations/
+db.sqlite3
