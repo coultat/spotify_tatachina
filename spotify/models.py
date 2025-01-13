@@ -6,7 +6,7 @@ class Image(models.Model):
     height = models.IntegerField()
     width = models.IntegerField()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.url
 
 
@@ -24,3 +24,6 @@ class Artist(models.Model):
     popularity = models.IntegerField(default=0)
     uri = models.CharField(max_length=100, default="Unknown Uri")
     images = models.ManyToManyField(Image)
+
+    def __str__(self) -> str:
+        return self.name

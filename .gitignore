@@ -4,3 +4,5 @@ default.env
 **/__pycache__/
 spotify/migrations/
 db.sqlite3
+pyproject.toml
+tatachina/__pycache__/
