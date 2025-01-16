@@ -6,7 +6,7 @@ How does it work:
 - Clone this repository
 - run the migrations
  ```bash
-python manage.py makemigrations | python manage.py migrate
+python manage.py makemigrations; python manage.py migrate
 ```
 - Run the localhost server
  ```bash
@@ -41,6 +41,6 @@ pip install requirements.txt-
 This is a personal repository for learning purposes. All feedbacks are welcome :-)
 
 <h2>Known issues</h2>
-- [] Missing timeout in the client
-- [] Push migrations
+- [] Missing timeout in the client <br>
+- [] Push migrations<br>
 - [x] README.md
