@@ -17,7 +17,6 @@ ENV_FILE = Path(__file__).parent.parent / "default.env"
 env = environ.Env()
 environ.Env.read_env(ENV_FILE)
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
