@@ -2,14 +2,14 @@ import base64
 import os
 from pathlib import Path
 
-import requests
-from dotenv import load_dotenv
+import httpx
+import environ
+from rest_framework import response
 
-# from spotify.models import Artist
 
-
-path = Path(__file__).parent.parent.parent / "default.env"
-load_dotenv(path)
+ENV_FILE = Path(__file__).parent.parent.parent / "default.env"
+env = environ.Env()
+environ.Env.read_env(ENV_FILE)
 
 
 class SpotifyClient:
@@ -24,7 +24,7 @@ class SpotifyClient:
         auth_header = base64.b64encode(f"{self.client_id}:{self.client_secret}".encode()).decode()
         headers = {"Authorization": f"Basic {auth_header}"}
         data = {"grant_type": "client_credentials"}
-        token = requests.post(
+        token = httpx.post(
             self.auth_url,  # Todo create exceptions for this 404...
             headers=headers,
             data=data,
@@ -35,6 +35,6 @@ class SpotifyClient:
         token = self.get_token()
         return {"Authorization": f"Bearer {token}"}
 
-    def get_artist(self, artist_id: str) -> dict[str, str]:  # Todo craete artist model
-        return requests.get(self.artist_url + artist_id, headers=self.headers)
+    def get_artist(self, artist_id: str) -> response:  # Todo craete artist model
+        return httpx.get(self.artist_url + artist_id, headers=self.headers)
 
