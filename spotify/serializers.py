@@ -33,7 +33,7 @@ class ArtistSerializer(serializers.ModelSerializer):
         artist = Artist.objects.create(**validated_data)
 
         for image_data in images_data:
-            image = Image.objects.create(**image_data)
+            image = Image.objects.create(**image_data)  # Todo adjust this
             artist.images.add(image)
 
         return artist
