@@ -5,35 +5,49 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Image',
+            name="Image",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('url', models.URLField(max_length=500)),
-                ('height', models.IntegerField()),
-                ('width', models.IntegerField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("url", models.URLField(max_length=500)),
+                ("height", models.IntegerField()),
+                ("width", models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='Artist',
+            name="Artist",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('spotify_url', models.URLField(max_length=500)),
-                ('followers_total', models.IntegerField(default=0)),
-                ('genres', models.JSONField(default=spotify.models.default_genres)),
-                ('api_href', models.CharField(default='no api_href', max_length=500)),
-                ('spotify_id', models.CharField(default='Unknown Id', max_length=50)),
-                ('name', models.CharField(default='Unknown Artist', max_length=200)),
-                ('popularity', models.IntegerField(default=0)),
-                ('uri', models.CharField(default='Unknown Uri', max_length=100)),
-                ('images', models.ManyToManyField(to='spotify.image')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("spotify_url", models.URLField(max_length=500)),
+                ("followers_total", models.IntegerField(default=0)),
+                ("genres", models.JSONField(default=spotify.models.default_genres)),
+                ("api_href", models.CharField(default="no api_href", max_length=500)),
+                ("spotify_id", models.CharField(default="Unknown Id", max_length=50)),
+                ("name", models.CharField(default="Unknown Artist", max_length=200)),
+                ("popularity", models.IntegerField(default=0)),
+                ("uri", models.CharField(default="Unknown Uri", max_length=100)),
+                ("images", models.ManyToManyField(to="spotify.image")),
             ],
         ),
     ]
