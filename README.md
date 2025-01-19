@@ -41,6 +41,10 @@ pip install requirements.txt-
 This is a personal repository for learning purposes. All feedbacks are welcome :-)
 
 <h2>Known issues</h2>
-- [] Missing timeout in the client <br>
-- [] Push migrations<br>
+- [X] Missing timeout in the client <br>
+- [X] Push migrations<br>
 - [x] README.md
+- [] Fix serializers structure
+- [] Fix db structure
+- [] Add tests
+- [] Add cache
