@@ -19,7 +19,7 @@ class Artist(models.Model):
     followers_total = models.IntegerField(default=0)
     genres = models.JSONField(default=default_genres)
     api_href = models.CharField(max_length=500, default="no api_href")
-    spotify_id = models.CharField(max_length=50, default="Unknown Id")
+    spotify_id = models.CharField(max_length=50, default="Unknown Id", unique=True)
     name = models.CharField(max_length=200, default="Unknown Artist")
     popularity = models.IntegerField(default=0)
     uri = models.CharField(max_length=100, default="Unknown Uri")

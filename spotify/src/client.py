@@ -1,7 +1,7 @@
 import base64
 import logging
 import httpx
-from spotify_tatachina.spotify.src.utils import env
+from spotify.src.utils import env
 from rest_framework import response
 
 
