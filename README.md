@@ -44,7 +44,7 @@ This is a personal repository for learning purposes. All feedbacks are welcome :
 - [X] Missing timeout in the client <br>
 - [X] Push migrations<br>
 - [x] README.md
-- [] Fix serializers structure
-- [] Fix db structure
+- [x] Fix serializers structure
+- [x] Fix db structure
 - [] Add tests
-- [] Add cache
+- [x] Add cache
