@@ -1,4 +1,4 @@
-from typing import Any, ClassVar
+from typing import Any, ClassVar, Self, Union
 
 from rest_framework import serializers
 
@@ -27,6 +27,20 @@ class ArtistSerializer(serializers.ModelSerializer):
             "uri",
             "images",
         ]
+
+    def to_internal_value(self: Self, data: dict[str, Union[str, int, dict[str, str]]]):
+        data = {
+            "spotify_url": data.get("external_urls", {}).get("spotify"),
+            "followers": data.get("followers", {}).get("total"),
+            "genres": data.get("genres"),
+            "api_href": data.get("href"),
+            "spotify_id": data.get("id"),
+            "name": data.get("name"),
+            "popularity": data.get("popularity"),
+            "uri": data.get("uri"),
+            "images": data.get("images"),
+        }
+        return super().to_internal_value(data)
 
     def create(self, validated_data: dict[str, Any]) -> Artist:
         images_data = validated_data.pop("images")
