@@ -6,7 +6,6 @@ from spotify.models import Artist
 from httpx import HTTPStatusError, TimeoutException
 from spotify.serializers import ArtistSerializer
 from spotify.src.client import SpotifyClient
-from spotify.serializer_utils import prepare_artist
 import asyncio
 
 
@@ -28,7 +27,7 @@ def get_artist(request: Request) -> Response:
     try:
         result = asyncio.run(SpotifyClient().get_artist(artist_id))
         result.raise_for_status()
-        artist = prepare_artist(result.json())
+        artist = ArtistSerializer(data=result.json())
         if artist.is_valid():
             artist.save()
             return Response(data={"result": result.json()}, status=status.HTTP_200_OK)
